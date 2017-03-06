@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>mooRatings Demonstration page</title>
+	<meta name="description" content="mooRatings Demonstration page">
+	<meta name="author" content="© 2010 - Guido Gautier (Ace Group bv)">
+
+	<!-- Add the mooRatings stylesheet. You can also copy the contents to your own stylesheet -->
+	<link rel="stylesheet" href="mooRatings.css">
+
+</head>
+<body>
+
+	<h1>mooRatings Demonstration page</h1>
+
+	<!-- All options in the selectbox will be converted into stars -->
+	<select name="rating" id="rating">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+	</select>
+	
+	<script src="mootools-core-1.3.js"></script>
+
+	<!-- Add the mooRatings JavaScript file -->
+	<script src="../Source/mooRatings-1.1.js"></script>
+
+	<script type="text/javascript">
+		window.addEvent('domready', function() {
+
+			// convert the selectbox with id 'rating'
+			var rating = new mooRatings(document.id('rating'), {
+				showSelectBox : true,
+				container : null,
+				defaultRating : 4
+			});
+		});
+	</script>
+</body>
+</html>
