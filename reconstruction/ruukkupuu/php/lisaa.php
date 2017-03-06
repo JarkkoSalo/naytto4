@@ -107,6 +107,9 @@
 </ul>
 </div>
 </header>
+  
+  
+    
   <p> Tuotekoodi/numero generoidaan automaattisesti </p>
 <!-- Formi alkaa -->
     <form enctype="multipart/form-data" action="lisaa2.php" method="POST" style="width: 30%; margin: 0 auto;">
@@ -120,8 +123,11 @@
         <div class="form-group">
           <h5><b> Tuotteen kuva </b></h5>
           <br>
-            <input name="tiedosto" type="file"/>
-        </div>
+            
+            
+            <input type="file" name="tiedosto[]" id="file1" />
+            <input type="file" name="tiedosto[]" id="file2" />
+            </div>
 
         <div class="form-group">
           <h5><b> Tuotteen hinta </b></h5>

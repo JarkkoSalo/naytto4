@@ -41,9 +41,7 @@ $ed = $head->fetch_object();
 </head>
 <body>
 
-<div class="info row">
-<h5 class="columns small-10 small-centered"><strong><span class="show-for-large">What's Underneath Matters: </span>Win a year's supply of underwear from MeUndies!</strong></h5>
-</div>
+
 </a>
 
 <script>
@@ -127,7 +125,17 @@ try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:1487720919,byc:0,owlid
   }
 </style>
 
+<script>
 
+function hello() {
+  var count = 20;
+  var html = [];
+  while(count--) {
+    html.push("<input type='text' name='name", count, "'>");
+  }
+  $('#myform').append(html.join(''));
+}
+</script>
 <link rel="stylesheet" href="arvosteluohjelma/moo/Assets/mooRatings.css">
 <style>
 #rating {
@@ -176,7 +184,7 @@ try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:1487720919,byc:0,owlid
 </ul>
 </div>
 </div>
-
+<input type="button" onclick="hello();"> 
 
 <div class="row">
 <div class="medium-4 columns">

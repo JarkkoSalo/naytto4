@@ -42,7 +42,8 @@ if ($conn->connect_error) {
     if(move_uploaded_file($_FILES['tiedosto']['tmp_name'], $uploadfile)) {
 
 
-      $conn->query("INSERT INTO 5412_tuotekuvat (kuvanimi, tuotenimi, tuotenumero) VALUES ('".$_FILES['tiedosto']['name']."', '".$tuotteennimi."', '".$result."' )");
+      $conn->query("INSERT INTO 5412_tuotekuvat (kuvanimi, tuotenimi, tuotenumero) VALUES
+      ('".$_FILES['tiedosto']['name']."', '".$tuotteennimi."', '".$result."' )");
 
 
 
