@@ -123,12 +123,22 @@
         <div class="form-group">
           <h5><b> Tuotteen kuva </b></h5>
           <br>
+<<<<<<< HEAD
             
             
             <input type="file" name="tiedosto[]" id="file1" />
             <input type="file" name="tiedosto[]" id="file2" />
             </div>
 
+=======
+            <input name="tiedosto" type="file"/>
+            <input name="tiedosto2" type="file"/>
+            <input name="tiedosto3" type="file"/>
+            <input name="tiedosto4" type="file"/>
+            <input name="tiedosto5" type="file"/>        
+        </div>
+        
+>>>>>>> 5d8c1bdfda419b90b972f77975e02367e6e5df04
         <div class="form-group">
           <h5><b> Tuotteen hinta </b></h5>
           <br>
