@@ -109,7 +109,7 @@
 </header>
   <p> Tuotekoodi/numero generoidaan automaattisesti </p>
 <!-- Formi alkaa -->
-    <form enctype="multipart/form-data" action="lisaa_tuote.php" method="POST" style="width: 30%; margin: 0 auto;">
+    <form enctype="multipart/form-data" action="lisaa2.php" method="POST" style="width: 30%; margin: 0 auto;">
 	  <input type="hidden" name="MAX_FILE_SIZE" value="30000"/>
         <div class="form-group">
           <h5><b> Tuotteen nimi </b></h5>
