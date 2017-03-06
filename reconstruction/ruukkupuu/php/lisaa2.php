@@ -43,6 +43,10 @@ if ($conn->connect_error) {
 
 
       $conn->query("INSERT INTO 5412_tuotekuvat (kuvanimi, tuotenimi, tuotenumero) VALUES ('".$_FILES['tiedosto']['name']."', '".$tuotteennimi."', '".$result."' )");
+      $conn->query("INSERT INTO 5412_tuotekuvat (kuvanimi, tuotenimi, tuotenumero) VALUES ('".$_FILES['tiedosto2']['name']."', '".$tuotteennimi."', '".$result."' )");
+      $conn->query("INSERT INTO 5412_tuotekuvat (kuvanimi, tuotenimi, tuotenumero) VALUES ('".$_FILES['tiedosto3']['name']."', '".$tuotteennimi."', '".$result."' )");
+      $conn->query("INSERT INTO 5412_tuotekuvat (kuvanimi, tuotenimi, tuotenumero) VALUES ('".$_FILES['tiedosto4']['name']."', '".$tuotteennimi."', '".$result."' )");
+      $conn->query("INSERT INTO 5412_tuotekuvat (kuvanimi, tuotenimi, tuotenumero) VALUES ('".$_FILES['tiedosto5']['name']."', '".$tuotteennimi."', '".$result."' )");
 
 
 

@@ -121,8 +121,12 @@
           <h5><b> Tuotteen kuva </b></h5>
           <br>
             <input name="tiedosto" type="file"/>
+            <input name="tiedosto2" type="file"/>
+            <input name="tiedosto3" type="file"/>
+            <input name="tiedosto4" type="file"/>
+            <input name="tiedosto5" type="file"/>        
         </div>
-
+        
         <div class="form-group">
           <h5><b> Tuotteen hinta </b></h5>
           <br>
