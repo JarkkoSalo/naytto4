@@ -69,9 +69,7 @@ if (mysqli_connect_errno())
     height: 200px;
   }
 
-  .ehdotus {
-    @include block-grid(3);
-  }
+
 
   #ostonappi {
     background-color: #257cd6;
@@ -83,14 +81,20 @@ if (mysqli_connect_errno())
     background-color: #c6bfb0;
   }
 
-  .table {
-    display: block;
-    margin: 0 auto;
-
-  }
+.fi-social-facebook{color:dodgerblue;font-size:2rem;}.fi-social-youtube{color:red;font-size:2rem;}.fi-social-pinterest{color:darkred;font-size:2rem;}i.fi-social-instagram{color:brown;font-size:2rem;}i.fi-social-tumblr{color:navy;font-size:2rem;}.fi-social-twitter{color:skyblue;font-size:2rem;}
 </style>
 
+<script>
 
+function hello() {
+  var count = 20;
+  var html = [];
+  while(count--) {
+    html.push("<input type='text' name='name", count, "'>");
+  }
+  $('#myform').append(html.join(''));
+}
+</script>
 <link rel="stylesheet" href="arvosteluohjelma/moo/Assets/mooRatings.css">
 <style>
 #rating {
@@ -118,6 +122,7 @@ if (mysqli_connect_errno())
 
     </script>
 <style>.fi-social-facebook{color:dodgerblue;font-size:2rem;}.fi-social-youtube{color:red;font-size:2rem;}.fi-social-pinterest{color:darkred;font-size:2rem;}i.fi-social-instagram{color:brown;font-size:2rem;}i.fi-social-tumblr{color:navy;font-size:2rem;}.fi-social-twitter{color:skyblue;font-size:2rem;}</style>
+
 <header>
 
 <div class="top-bar">
@@ -200,7 +205,6 @@ if (mysqli_connect_errno())
 </ul>
 </div>
 </header>
-
 <!-- HEADER PÄÄTTYY, TÄSTÄ ALKAA KOODI -->
 <body>
 <p class="push"></p>
