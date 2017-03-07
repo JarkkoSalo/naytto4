@@ -66,6 +66,11 @@ if ($conn->connect_error) {
         $query = $conn->query("UPDATE 5412_tuotteen_kuvaus SET tuotenimi='".$_POST['nimimuokkaus']."' WHERE tuotenumero = '".$id."'");
 
         $query = $conn->query("UPDATE 5412_arvostelut_laskenta SET tuotenimi='".$_POST['nimimuokkaus']."' WHERE tuotenro = '".$id."'");
+
+        $conn->query("UPDATE 5412_tuotekuvat SET tuotenimi = '".$newfilename."' WHERE tuotenumero = '".$id."'");
+        $conn->query("UPDATE 5412_tuotekuvat SET tuotenimi = '".$newfilename2."' WHERE tuotenumero = '".$id."'");
+        $conn->query("UPDATE 5412_tuotekuvat SET tuotenimi = '".$newfilename3."' WHERE tuotenumero = '".$id."'");
+        $conn->query("UPDATE 5412_tuotekuvat SET tuotenimi = '".$newfilename4."' WHERE tuotenumero = '".$id."'");
       } else {
         echo "et muokanut nimeä";
       }

@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once("config.php");
+require_once("config.php"); // Fill db details config file!
 
 $dataConnection = mysqli_connect($db_host, $db_username, $db_password, $db_name);
 
@@ -82,13 +82,7 @@ if (mysqli_connect_errno())
   .hinta {
     background-color: #c6bfb0;
   }
-
-  .table {
-    display: block;
-    margin: 0 auto;
-
-  }
-</style>
+  </style>
 
 
 <link rel="stylesheet" href="arvosteluohjelma/moo/Assets/mooRatings.css">
@@ -161,12 +155,8 @@ if (mysqli_connect_errno())
 </div>
 </header>
 <body>
-<script>
-function back() {
-  header("location:javascript://history.go(-1)");
- }
-</script>
-<button type="button" onclick="back();">Takaisin tuotesivulle</button>
+
+
 <div style="float: right;">
 <?php
  if ( !isset($_SESSION["tuotteet"]) ) {
@@ -179,9 +169,9 @@ function back() {
 ?>
 </div>
 
-<strong>Ostoskorin sisältö</strong>
+<h2 style="text-align: center;">Ostoskorin sisältö</h2>
 <div class="row">
-<div class="large-12">
+  <div class="large-12">
 <?php
  if ( !isset($_SESSION["tuotteet"]) ) {
 	 echo '<p><i>Ostoskori on tyhjä.</i></p>';
@@ -191,48 +181,28 @@ function back() {
 $priceCounter = 0;
 $productCounter = 0;
 
-echo '<table>';
-echo '<tbody>';
 foreach (array_count_values($_SESSION["tuotteet"]) as $tuote => $maara)
 {
-echo '<tr>';
-echo '<td>';
 
 	$productRow = mysqli_fetch_assoc(mysqli_query($dataConnection, "SELECT * FROM 5412_tuote WHERE tuotenumero = '" . $tuote . "' LIMIT 1"));
 
 	echo "<p><a href=\"../news-magazine.php?id=" . $productRow["tuotenumero"] . "\">" . utf8_encode($productRow["tuotenimi"]) . "</a> x " . $maara . "<br><strong>Hinta: </strong> " . ($productRow["tuotteen_hinta"] * $maara) . " € (" . $productRow["tuotteen_hinta"] . " € / kpl) <br><a href=\"cart.php?removeItem=" . $productRow["tuotenumero"] . "\">[Poista korista]</a></p>";
-echo '</td>';
-echo '</tr>';
 	$priceCounter = $priceCounter + $productRow["tuotteen_hinta"] * $maara;
 	$productCounter = $productCounter + $maara;
 }
-echo '</tbody';
-echo '</table>';
+
 echo $productCounter . " tuotetta, yhteensä: " . $priceCounter . " €";
 
 echo '<p><a href="cart.php?emptyCart">Tyhjennä ostoskori</a></p>';
 }
 ?>
+ </div>
 </div>
-</div>
-<footer>
+<!-- FOOTER ALKAA ! -->
 
-<div class="row expanded">
-<div class="medium-6 columns">
-
-
-
-</div>
-<div class="medium-6 columns">
-<ul class="menu align-right">
-<li class="menu-text">Copyright © <?php echo date("Y");?> Ruukkupuu Oy</li>
-</ul>
-</div>
-</div>
-</footer>
-
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
-    <script>
+<script>
       $(document).foundation();
     </script>
 <script type="text/javascript" src="https://intercom.zurb.com/scripts/zcom.js"></script>

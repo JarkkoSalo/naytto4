@@ -59,7 +59,7 @@ $kolme = $kolme * 1;
 $nelja = $nelja * 1;
 $viisi = $viisi * 1;
 
-$wholegrain = floor($yksi + $kaksi + $kolme + $nelja + $viisi / $tahtimaara);
+$whole = floor($yksi + $kaksi + $kolme + $nelja + $viisi / $tahtimaara);
 
 
  ?>

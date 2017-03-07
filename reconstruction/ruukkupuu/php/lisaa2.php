@@ -44,7 +44,7 @@ if(!empty($tuotteenkuvaus)){
       $temp2 = explode(".", $_FILES["tiedosto2"]["name"]);
       $temp3 = explode(".", $_FILES["tiedosto3"]["name"]);
       $temp4 = explode(".", $_FILES["tiedosto4"]["name"]);
-    
+
 
     $newfilename =  $_POST["tuotenimi"] . 1 . '.' . end($temp1);
     move_uploaded_file($_FILES["tiedosto"]["tmp_name"], "tuotekuvat/" . $newfilename);
