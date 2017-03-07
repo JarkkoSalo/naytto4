@@ -145,7 +145,7 @@ function hello() {
 
 <div class="row">
 <div class="medium-4 columns">
-    <img src="bonzai.png" alt="company logo">
+    <img src="../bonzai.png" alt="company logo">
 </div>
 <div class="medium-4 columns">
   <div class="push"></div>
