@@ -6,7 +6,7 @@
 <title>Foundation | Welcome</title>
 <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel='stylesheet' type='text/css'>
-
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 </head>
 <body>
 
@@ -107,9 +107,9 @@
 </ul>
 </div>
 </header>
-  
-  
-    
+
+
+
   <p> Tuotekoodi/numero generoidaan automaattisesti </p>
 <!-- Formi alkaa -->
     <form enctype="multipart/form-data" action="lisaa2.php" method="POST" style="width: 30%; margin: 0 auto;">
@@ -123,22 +123,16 @@
         <div class="form-group">
           <h5><b> Tuotteen kuva </b></h5>
           <br>
-<<<<<<< HEAD
-            
-            
-            <input type="file" name="tiedosto[]" id="file1" />
-            <input type="file" name="tiedosto[]" id="file2" />
-            </div>
 
-=======
+
+
             <input name="tiedosto" type="file"/>
             <input name="tiedosto2" type="file"/>
             <input name="tiedosto3" type="file"/>
             <input name="tiedosto4" type="file"/>
-            <input name="tiedosto5" type="file"/>        
+
         </div>
-        
->>>>>>> 5d8c1bdfda419b90b972f77975e02367e6e5df04
+
         <div class="form-group">
           <h5><b> Tuotteen hinta </b></h5>
           <br>
@@ -204,7 +198,7 @@
 </div>
 </div>
 </footer>
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
 <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
 <script>
       $(document).foundation();

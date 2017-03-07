@@ -24,43 +24,10 @@ $head = $conn->query("SELECT * FROM 5412_tuote WHERE tuotenumero = '".$tuotenume
 $ed = $head->fetch_object();
 
 ?>
-<!doctype html>
-<html class="no-js" lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-<script type="text/javascript">
-
-</script>
-
-<title>Oy Ruukkupuu | <?php echo $ed->tuotenimi; ?></title>
-<link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel='stylesheet' type='text/css'>
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-</head>
-<body>
 
 
-</a>
-
-<script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-2195009-2', 'auto');
-      ga('send', 'pageview');
-
-      ga('create', 'UA-2195009-27', 'auto', {name: "foundation"});
-      ga('foundation.send', 'pageview');
-
-    </script>
-<style>.fi-social-facebook{color:dodgerblue;font-size:2rem;}.fi-social-youtube{color:red;font-size:2rem;}.fi-social-pinterest{color:darkred;font-size:2rem;}i.fi-social-instagram{color:brown;font-size:2rem;}i.fi-social-tumblr{color:navy;font-size:2rem;}.fi-social-twitter{color:skyblue;font-size:2rem;}</style>
-
-<!doctype html>
-<html class="no-js" lang="en">
+<!DOCTYPE html>
+<html>
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -110,9 +77,7 @@ try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:1487720919,byc:0,owlid
     height: 200px;
   }
 
-  .ehdotus {
-    @include block-grid(3);
-  }
+
 
   #ostonappi {
     background-color: #257cd6;
@@ -146,11 +111,7 @@ function hello() {
 </head>
 <body>
 
-<a href="http://zurb.com/article/1466/what-s-underneath-matters-how-meundies-in" class="meundies-banner">
-<div class="info row">
-<h5 class="columns small-10 small-centered"><strong><span class="show-for-large">What's Underneath Matters: </span>Win a year's supply of underwear from MeUndies!</strong></h5>
-</div>
-</a>
+
 
 <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -184,15 +145,16 @@ function hello() {
 </ul>
 </div>
 </div>
-<input type="button" onclick="hello();"> 
+<input type="button" onclick="hello();">
 
 <div class="row">
 <div class="medium-4 columns">
-<img src="https://placehold.it/450x183&text=LOGO" alt="company logo">
+    <img src="bonzai.png" alt="company logo">
 </div>
-<div class="medium-8 columns">
-<img src="https://placehold.it/900x175&text=Responsive Ads - ZURB Playground/333" alt="advertisement for deep fried Twinkies">
+<div class="medium-4 columns">
+  <div class="push"></div>
 </div>
+
 </div>
 
 <br>
@@ -303,19 +265,24 @@ function hello() {
 
     </div>
 
+    <?php
+      $kuva = $conn->query("SELECT * FROM 5412_tuotekuvat  WHERE tuotenumero = '".$tuotenumero."'LIMIT 4");
+
+      while($row = $kuva->fetch_assoc()) {
+
+        echo '<div class="large-3 column">';
+        echo '<div class="card">';
+        echo '<img src="php/tuotekuvat/' . $row["kuvanimi"] . '">';
+        echo '</div>';
+        echo '</div>';
+      }
+    ?>
+    </div>
+
  </div>
 </div>
 
  <br>
-
- <div class="row">
-
- <div class="large-12">
-  <?php echo $eg->tuotteen_kuvaus // tuotteen kuvauksen tulostus?>
-  <div class="push"></div>
- </div>
-</div>
-
  <div class="row">
 
  <div class="large-12">
@@ -337,12 +304,10 @@ function hello() {
 <button class="btn btn-primary" id="yes" onclick="arvostele();">Lähetä arvostelu</button>
 <script src="arvosteluohjelma/moo/Demo/mootools-core-1.3.js"></script>
 <script>
-
 $(function(){
  $('#yes').on('click', function(e){
    e.preventDefault();
    $('#yes').fadeOut(300);
-
    $.ajax({
      url: 'arvosteluohjelma/arvostele.php',
      type: 'post',
@@ -361,10 +326,7 @@ $(function(){
 });
 </script>
 <script>
-
 $(function(){
-
-
    $.ajax({
      url: 'arvosteluohjelma/laske_keskiarvo.php',
      type: 'post',
@@ -379,7 +341,6 @@ $(function(){
        console.log("Details: " + desc + "\nError:" + err);
      }
    }); // end ajax call
-
 });
 </script>
 
@@ -390,8 +351,6 @@ $(function(){
   window.addEvent('domready', function() {
     var uusi_arvo = document.getElementById('uusi_arvo');
     var arv = uusi_arvo.value;
-
-
     // convert the selectbox with id 'rating'
     var rating = new mooRatings(document.id('rating'), {
       showSelectBox : true,
@@ -406,47 +365,37 @@ $(function(){
 </div>
 
 
+
 <div class="row">
   <?php
+  // Tällä koodilla haetaan ehdotukset, tulostetaan
+  $head = $conn->query("SELECT * FROM 5412_tuote");
+  $kuva = $conn->query("SELECT * FROM 5412_tuotekuvat WHERE kuvajarjestys = '1' LIMIT 4");
+  $tuotekuvaus = $conn->query("SELECT * FROM 5412_tuotteen_kuvaus");
 
 
-        // Tällä koodilla haetaan ehdotukset, tulostetaan
-        $head = $conn->query("SELECT * FROM 5412_tuote");
-        $kuva = $conn->query("SELECT * FROM 5412_tuotekuvat LIMIT 4");
-        $tuotekuvaus = $conn->query("SELECT * FROM 5412_tuotteen_kuvaus");
+  while($row = $kuva->fetch_assoc()) {
 
-
-        while($row = $kuva->fetch_assoc()) {
-
-        echo '<div class="large-3 column ehdotus">';
-        echo '<div class="card">';
-        echo "<img class='img-responsive' src=" . "php/tuotekuvat/". $row["kuvanimi"]. '>';
-        echo '<div class="card-section">';
-        echo '<h4 class="ehdotus" id="'.$row['tuotenimi'].'">' . $row['tuotenimi'].'</h4>';
-        echo '<a href="news-magazine.php?id='.$row["tuotenumero"].'">'.$row['tuotenimi'].'</a>';
-        echo '</div>';
-        echo '</div>';
-        echo '</div>';
-        }
-
-        $conn->close();
-        ?>
+  echo '<div class="small-4 large-4 columns">';
+  echo '<div class="card column-block">';
+  echo "<img class='img-responsive' src=" . "php/tuotekuvat/". $row["kuvanimi"] . '>';
+  echo '<div class="card-section">';
+  echo '<h4 class="ehdotus" id="'.$row['tuotenimi'].'">' . $row['tuotenimi'].'</h4>';
+  echo '<a href="news-magazine.php?id='.$row["tuotenumero"].'">'.$row['tuotenimi'].'</a>';
+  echo '</div>';
+  echo '</div>';
+  echo '</div>';
+  }
+  echo '<div class="small-2 large-4 columns end">';
+  echo '</div>';
+  ?>
 </div>
 <!-- FOOTER ALKAA ! -->
 <footer>
 <div class="row expanded callout secondary">
 <div class="large-4 columns">
 <h5>FLICKR IMAGES</h5>
-<div class="row small-up-4">
-<div class="column"><img class="thumbnail" src="https://placehold.it/75" alt="image of space dog"></div>
-<div class="column"><img class="thumbnail" src="https://placehold.it/75" alt="image of space dog"></div>
-<div class="column"><img class="thumbnail" src="https://placehold.it/75" alt="image of space dog"></div>
-<div class="column"><img class="thumbnail" src="https://placehold.it/75" alt="image of space dog"></div>
-<div class="column"><img class="thumbnail" src="https://placehold.it/75" alt="image of space dog"></div>
-<div class="column"><img class="thumbnail" src="https://placehold.it/75" alt="image of space dog"></div>
-<div class="column"><img class="thumbnail" src="https://placehold.it/75" alt="image of space dog"></div>
-<div class="column"><img class="thumbnail" src="https://placehold.it/75" alt="image of space dog"></div>
-</div>
+
 </div>
 <div class="large-4 columns">
 <h5>FLICKR IMAGES</h5>
@@ -473,9 +422,7 @@ $(function(){
 </ul>
 </div>
 <div class="medium-6 columns">
-<ul class="menu align-right">
-<p class="menu-text" style="text-align: center;">Copyright © 2099 Random Mag</p>
-</ul>
+
 </div>
 </div>
 </footer>
