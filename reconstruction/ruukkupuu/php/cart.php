@@ -140,11 +140,12 @@ if (mysqli_connect_errno())
 
 <div class="row">
 <div class="medium-4 columns">
-<img src="bonzai.png" id="logo" alt="company logo">
+    <img src="bonzai.png" alt="company logo">
 </div>
-<div class="medium-8 columns">
-<img src="https://placehold.it/900x175&text=Responsive Ads - ZURB Playground/333" alt="advertisement for deep fried Twinkies">
+<div class="medium-4 columns">
+  <div class="push"></div>
 </div>
+
 </div>
 
 <br>
@@ -154,13 +155,55 @@ if (mysqli_connect_errno())
 </div>
 <div class="top-bar" id="main-menu">
 <ul class="menu vertical medium-horizontal expanded medium-text-center" data-responsive-menu="drilldown medium-dropdown">
-
+<li class="has-submenu"><a href="#">Tech</a>
+<ul class="submenu menu vertical" data-submenu>
+<li><a href="#">One</a></li>
+<li><a href="#">Two</a></li>
+<li><a href="#">Three</a></li>
+</ul>
+</li>
+<li class="has-submenu"><a href="#">Energy</a>
+<ul class="submenu menu vertical" data-submenu>
+<li><a href="#">One</a></li>
+<li><a href="#">Two</a></li>
+<li><a href="#">Three</a></li>
+</ul>
+</li>
+<li class="has-submenu"><a href="#">Space</a>
+<ul class="submenu menu vertical" data-submenu>
+<li><a href="#">One</a></li>
+<li><a href="#">Two</a></li>
+<li><a href="#">Three</a></li>
+</ul>
+</li>
+<li class="has-submenu"><a href="#">Medicine</a>
+<ul class="submenu menu vertical" data-submenu>
+<li><a href="#">One</a></li>
+<li><a href="#">Two</a></li>
+<li><a href="#">Three</a></li>
+</ul>
+</li>
+<li class="has-submenu"><a href="#">Robotics</a>
+<ul class="submenu menu vertical" data-submenu>
+<li><a href="#">One</a></li>
+<li><a href="#">Two</a></li>
+<li><a href="#">Three</a></li>
+</ul>
+</li>
+<li class="has-submenu"><a href="#">Tesla</a>
+<ul class="submenu menu vertical" data-submenu>
+<li><a href="#">One</a></li>
+<li><a href="#">Two</a></li>
+<li><a href="#">Three</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </header>
+
+<!-- HEADER PÄÄTTYY, TÄSTÄ ALKAA KOODI -->
 <body>
+<p class="push"></p>
 <script>
 function back() {
   header("location:javascript://history.go(-1)");
@@ -215,6 +258,43 @@ echo '<p><a href="cart.php?emptyCart">Tyhjennä ostoskori</a></p>';
 ?>
 </div>
 </div>
+<p class="push"></p>
+<!-- FOOTER ALKAA ! -->
+<footer>
+<div class="row expanded callout secondary">
+<div class="large-4 columns">
+<h5>FLICKR IMAGES</h5>
+
+</div>
+<div class="large-4 columns">
+<h5>FLICKR IMAGES</h5>
+<span class="secondary label">Space</span>
+<span class="secondary label">Galaxies</span>
+<span class="secondary label">Milky Way</span>
+<span class="secondary label">Black Holes</span>
+<span class="secondary label">Rebels</span>
+<span class="secondary label">Death Star</span>
+<span class="secondary label">Republic</span>
+<span class="secondary label">R2D2</span>
+</div>
+<div class="large-4 columns">
+<h5>RANDOM MAG</h5>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti quam voluptatum vel repellat ab similique molestias molestiae ea omni
+</div>
+</div>
+<div class="row expanded">
+<div class="medium-6 columns">
+<ul class="menu">
+<li><a href="#">Legal</a></li>
+<li><a href="#">Partner</a></li>
+<li><a href="#">Explore</a></li>
+</ul>
+</div>
+<div class="medium-6 columns">
+
+</div>
+</div>
+</footer>
 <footer>
 
 <div class="row expanded">
