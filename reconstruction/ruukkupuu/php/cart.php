@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once("config.php"); // Fill db details config file!
+require_once("config.php");
 
 $dataConnection = mysqli_connect($db_host, $db_username, $db_password, $db_name);
 
@@ -82,6 +82,12 @@ if (mysqli_connect_errno())
   .hinta {
     background-color: #c6bfb0;
   }
+
+  .table {
+    display: block;
+    margin: 0 auto;
+
+  }
 </style>
 
 
@@ -155,8 +161,12 @@ if (mysqli_connect_errno())
 </div>
 </header>
 <body>
-
-
+<script>
+function back() {
+  header("location:javascript://history.go(-1)");
+ }
+</script>
+<button type="button" onclick="back();">Takaisin tuotesivulle</button>
 <div style="float: right;">
 <?php
  if ( !isset($_SESSION["tuotteet"]) ) {
@@ -168,8 +178,10 @@ if (mysqli_connect_errno())
  }
 ?>
 </div>
-<hr style="size: 1px; border-color: #61bf44;">
+
 <strong>Ostoskorin sisältö</strong>
+<div class="row">
+<div class="large-12">
 <?php
  if ( !isset($_SESSION["tuotteet"]) ) {
 	 echo '<p><i>Ostoskori on tyhjä.</i></p>';
@@ -179,28 +191,32 @@ if (mysqli_connect_errno())
 $priceCounter = 0;
 $productCounter = 0;
 
+echo '<table>';
+echo '<tbody>';
 foreach (array_count_values($_SESSION["tuotteet"]) as $tuote => $maara)
 {
+echo '<tr>';
+echo '<td>';
 
 	$productRow = mysqli_fetch_assoc(mysqli_query($dataConnection, "SELECT * FROM 5412_tuote WHERE tuotenumero = '" . $tuote . "' LIMIT 1"));
 
 	echo "<p><a href=\"../news-magazine.php?id=" . $productRow["tuotenumero"] . "\">" . utf8_encode($productRow["tuotenimi"]) . "</a> x " . $maara . "<br><strong>Hinta: </strong> " . ($productRow["tuotteen_hinta"] * $maara) . " € (" . $productRow["tuotteen_hinta"] . " € / kpl) <br><a href=\"cart.php?removeItem=" . $productRow["tuotenumero"] . "\">[Poista korista]</a></p>";
+echo '</td>';
+echo '</tr>';
 	$priceCounter = $priceCounter + $productRow["tuotteen_hinta"] * $maara;
 	$productCounter = $productCounter + $maara;
 }
-
+echo '</tbody';
+echo '</table>';
 echo $productCounter . " tuotetta, yhteensä: " . $priceCounter . " €";
 
 echo '<p><a href="cart.php?emptyCart">Tyhjennä ostoskori</a></p>';
 }
 ?>
-<footer>
-<div class="row">
-
-
-
-
 </div>
+</div>
+<footer>
+
 <div class="row expanded">
 <div class="medium-6 columns">
 

@@ -19,10 +19,14 @@ if ($conn->connect_error) {
 $tuotenumero = $_GET["id"];
 
 
-$head = $conn->query("SELECT * FROM 5412_tuote WHERE tuotenumero = '".$tuotenumero."'");
+$head = $conn->query("SELECT * FROM 5412_tuote WHERE tuotenumero = '".$tuotenumero."' LIMIT 1");
 
 $ed = $head->fetch_object();
 
+if($ed->tuotenimi < 0) {
+  echo '<alert> 404 </alert>';
+  header: url("cosmo.kpedu.fi/~jarkkosalo/php2017/naytto4/naytto4/reconstruction/ruukkupuu/news-magazine.php?id=");
+}
 ?>
 
 
@@ -31,15 +35,11 @@ $ed = $head->fetch_object();
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Foundation | Welcome</title>
-<script type="text/javascript">
-//<![CDATA[
-try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:1487720919,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dok3v=1613a3a185/"},atok:"b903b1d9a9bf136055d68f672784cafe",petok:"9bacac981267b420e805f813dd2016913656043c-1488779194-1800",zone:"zurb.com",rocket:"m",apps:{}}];document.write('<script type="text/javascript" src="//ajax.cloudflare.com/cdn-cgi/nexp/dok3v=f2befc48d1/cloudflare.min.js"><'+'\/script>');}}catch(e){};
-//]]>
-</script>
+<title>Oy Ruukkupuu | <?php $ed->tuotenimi; ?></title>
+
 <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel='stylesheet' type='text/css'>
-
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
 
 <style>
@@ -145,7 +145,7 @@ function hello() {
 </ul>
 </div>
 </div>
-<input type="button" onclick="hello();">
+
 
 <div class="row">
 <div class="medium-4 columns">
@@ -426,7 +426,7 @@ $(function(){
 </div>
 </div>
 </footer>
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
 <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
 <script>
       $(document).foundation();
